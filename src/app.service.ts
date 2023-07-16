@@ -61,6 +61,7 @@ export class AppService implements OnModuleInit {
 
   async postUser(body:CreateusersDTO){
     const { email, password, lastName, name } = body
+    console.log(body)
     if (email && password && lastName && name) {
       const newUser = await User.create({
         name,
