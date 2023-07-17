@@ -1,5 +1,9 @@
 services:
-  - name: nest-app
-    type: web
+  - name: web
+    env:
+      - key: NODE_ENV
+        value: production
     buildCommand: npm install && npm run build
     startCommand: npm run start:prod
+    github:
+      branch: main
