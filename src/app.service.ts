@@ -72,11 +72,10 @@ export class AppService implements OnModuleInit {
       return newUser
     }
     if (email && password) {
-      console.log("--------------------------------------------------------");
       const user = await User.findOne({ where: { email } });
       if (user.dataValues) {
-        let temp = this.validarToken(user.dataValues.password);
-        console.log();
+        let temp = this.validarToken(user.password);
+        console.log("----------------SE MODIFICÓ DATAVALUES, VALIDAR POR FAVOR--------------");
         if (temp["password"]===password) {
           console.log("Se inició sesion bien")
           return({
@@ -102,6 +101,4 @@ export class AppService implements OnModuleInit {
       );
       return("Usuario actualizado correctamente");
   }
-
-
 }
